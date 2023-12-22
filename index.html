@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random koala</title>
+</head>
+<body>
+  <style>
+    body {
+      background-color: lightblue;
+      display: flex;
+      height: 90vh;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <img src="#" alt="koala">
+  <script>
+  const img = document.querySelector('img')
+  fetch('https://api.giphy.com/v1/gifs/translate?api_key=5HWwJuhQcIsnKvmtKbbx9eqLdLWHLFkU&s=koala', {mode: 'cors'})
+    .then(function(response) {
+      return response.json()
+    })
+    .then(function(response) {
+      img.src = response.data.images.original.url
+    })
+    .catch(e => {
+      console.log(e)
+    })
+</script>
+</body>
+</html>
